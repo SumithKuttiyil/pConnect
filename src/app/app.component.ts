@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import Parse from 'parse';
+
 
 import { HomePage } from '../pages/home/home';
 @Component({
@@ -11,6 +13,10 @@ export class MyApp {
   rootPage:any = HomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+    let appid = '5aPWpZbdLBEvBl1kFBdYGYJsmtUDERbbRwaDqgul';
+    let jskey = 'pASsPal3dbIeunYthnjjKDxIA8wT2wTv8pC9ulZK';
+    Parse.initialize(appid, jskey);
+    Parse.serverURL = 'https://parseapi.back4app.com';
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
